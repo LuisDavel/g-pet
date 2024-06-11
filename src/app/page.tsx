@@ -56,7 +56,11 @@ export default function Home() {
           <Label title="Senha" htmlFor="password">
             Senha
           </Label>
-          <Input type="password" name="password" />
+          <Input
+            type="password"
+            placeholder="Insira uma senha"
+            name="password"
+          />
           <Button type="submit"> Entrar </Button>
           <p className="mx-4 text-xs self-center">OU</p>
           <Button variant={'outline'} type="button">
