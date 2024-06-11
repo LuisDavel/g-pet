@@ -7,17 +7,17 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Login | G-Pet',
-  description: 'Pagina de Login da G-Pet'
+  title: 'Register | G-Pet',
+  description: 'Pagina de registro da G-Pet'
 };
 
-export default function Home() {
+export default function Register() {
   async function submit(form: FormData) {
     'use server';
     console.log(form.get('email'));
   }
   return (
-    <main className="grid grid-cols-3 h-screen">
+    <main className="grid grid-cols-2 h-screen">
       <div className="relative h-full">
         <div className="relative h-full w-full">
           <img
@@ -28,47 +28,46 @@ export default function Home() {
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-primary/70 to-background" />
       </div>
-      <article className="h-full p-10 justify-center flex flex-col font-medium border border-l-0">
-        <p className="text-3xl text-pretty font-semibold">
-          Gerencie seu negócio de forma eficiente com nosso sistema completo.{' '}
-          <span className="text-primary"> Aumente </span> suas vendas e organize
-          suas operações em um único lugar.
-        </p>
-        <p className="mt-6">
-          Um sistema feito para <span className="text-primary">PetShops</span>,{' '}
-          <span className="text-primary">Clínicas Veterinárias</span> e seus
-          clientes
-        </p>
-      </article>
+
       <div className="h-full p-10">
-        {/* <ChangeTheme />  */}
+        <ChangeTheme />
         <form
-          className="justify-center h-full w-11/12 flex flex-col gap-2"
+          className="justify-center h-full w-11/12 flex flex-col gap-3"
           action={submit}
         >
           <p className="text-lg font-semibold mb-5">
-            Seja-bem vindo! ao <span className="text-primary">G-Pet</span>
+            Seja-bem vindo!! a página de cadastro da
+            <span className="text-primary font-semibold"> G-Pet</span>
           </p>
+          <Label title="Nome" htmlFor="name">
+            Nome Completo
+          </Label>
+          <Input type="text" name="name" placeholder="Insira seu nome" />
           <Label title="Email" htmlFor="email">
-            E-mail
+            Email
           </Label>
           <Input type="email" name="email" placeholder="Insira seu email" />
-          <Label title="Senha" htmlFor="password">
-            Senha
+          <Label title="NomeEstabelecimento" htmlFor="work">
+            Nome do estabelecimento
           </Label>
-          <Input type="password" name="password" />
+          <Input
+            type="text"
+            name="work"
+            placeholder="Insira o nome do estabelecimento"
+          />
+
           <Button type="submit"> Entrar </Button>
           <p className="mx-4 text-xs self-center">OU</p>
-          <Button variant={'outline'} type="button">
-            <Link href={'/register'}>
+          <Link className="self-end" href={'/'} legacyBehavior>
+            <Button variant={'outline'} type="button">
               <p className="text-primary justify-end flex gap-2 items-center">
                 <span>
-                  <Icon.paw className="h-5 w-5" />
+                  <Icon.back className="h-5 w-5" />
                 </span>
-                Criar uma conta
+                Voltar
               </p>
-            </Link>
-          </Button>
+            </Button>
+          </Link>
         </form>
       </div>
     </main>
