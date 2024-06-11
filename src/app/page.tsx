@@ -41,7 +41,7 @@ export default function Home() {
         </p>
       </article>
       <div className="h-full p-10">
-        {/* <ChangeTheme />  */}
+        <ChangeTheme />
         <form
           className="justify-center h-full w-11/12 flex flex-col gap-2"
           action={submit}
