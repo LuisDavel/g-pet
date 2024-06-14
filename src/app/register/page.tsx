@@ -12,8 +12,13 @@ export const metadata: Metadata = {
   description: 'Pagina de registro da G-Pet'
 };
 
-export default function Register({ searchParams }) {
-  console.log(searchParams);
+type SearchParamsProps = {
+  searchParams: {
+    step: number;
+  };
+};
+
+export default function Register({ searchParams }: SearchParamsProps) {
   async function submit(form: FormData) {
     'use server';
     console.log(form.get('cep'));
