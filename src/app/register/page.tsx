@@ -1,3 +1,4 @@
+import { Case, Default, Switch } from '@/components/conditiona-component';
 import { Button } from '@/components/ui/button';
 import { ChangeTheme } from '@/components/ui/change-theme';
 import { Input } from '@/components/ui/input';
@@ -11,10 +12,11 @@ export const metadata: Metadata = {
   description: 'Pagina de registro da G-Pet'
 };
 
-export default function Register() {
+export default function Register({ searchParams }) {
+  console.log(searchParams);
   async function submit(form: FormData) {
     'use server';
-    console.log(form.get('email'));
+    console.log(form.get('cep'));
   }
   return (
     <main className="grid grid-cols-2 h-screen">
@@ -39,35 +41,62 @@ export default function Register() {
             Seja-bem vindo!! a página de cadastro da
             <span className="text-primary font-semibold"> G-Pet</span>
           </p>
-          <Label title="Nome" htmlFor="name">
-            Nome Completo
-          </Label>
-          <Input type="text" name="name" placeholder="Insira seu nome" />
-          <Label title="Email" htmlFor="email">
-            Email
-          </Label>
-          <Input type="email" name="email" placeholder="Insira seu email" />
-          <Label title="NomeEstabelecimento" htmlFor="work">
-            Nome do estabelecimento
-          </Label>
-          <Input
-            type="text"
-            name="work"
-            placeholder="Insira o nome do estabelecimento"
-          />
+          <Switch>
+            <Default>
+              <Label title="Nome" htmlFor="name">
+                Nome Completo
+              </Label>
+              <Input type="text" name="name" placeholder="Insira seu nome" />
+              <Label title="Email" htmlFor="email">
+                Email
+              </Label>
+              <Input type="email" name="email" placeholder="Insira seu email" />
+              <Label title="NomeEstabelecimento" htmlFor="work">
+                Nome do estabelecimento
+              </Label>
+              <Input
+                type="text"
+                name="work"
+                placeholder="Insira o nome do estabelecimento"
+              />
 
-          <Button type="submit"> Entrar </Button>
-          <p className="mx-4 text-xs self-center">OU</p>
-          <Link className="self-end" href={'/'} legacyBehavior>
-            <Button variant={'outline'} type="button">
-              <p className="text-primary justify-end flex gap-2 items-center">
-                <span>
-                  <Icon.back className="h-5 w-5" />
-                </span>
-                Voltar
-              </p>
-            </Button>
-          </Link>
+              <Button type="submit">
+                <Link
+                  href={'/register?step=2'}
+                  className="w-full justify-center flex gap-2 items-center"
+                >
+                  Proximo
+                </Link>
+              </Button>
+            </Default>
+            <Case condition={searchParams.step == 2}>
+              <Label title="CEP" htmlFor="cep">
+                CEP
+              </Label>
+              <Input type="text" name="cep" placeholder="Insira o CEP" />
+              <Label title="Telefone" htmlFor="phone">
+                Telefone
+              </Label>
+              <Input
+                type="text"
+                name="phone"
+                placeholder="Insira o numero de celular"
+              />
+
+              <Button type="submit">Enviar</Button>
+            </Case>
+          </Switch>
+          <Button variant={'outline'} type="button">
+            <Link
+              href={'/'}
+              className="text-primary h-full w-full justify-center flex gap-2 items-center"
+            >
+              <span>
+                <Icon.back className="h-5 w-5" />
+              </span>
+              Voltar
+            </Link>
+          </Button>
         </form>
       </div>
     </main>

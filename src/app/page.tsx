@@ -43,7 +43,7 @@ export default function Home() {
       <div className="h-full p-10">
         <ChangeTheme />
         <form
-          className="justify-center h-full w-11/12 flex flex-col gap-2"
+          className="justify-center h-full w-11/12 flex flex-col gap-4"
           action={submit}
         >
           <p className="text-lg font-semibold mb-5">
@@ -64,8 +64,8 @@ export default function Home() {
           <Button type="submit"> Entrar </Button>
           <p className="mx-4 text-xs self-center">OU</p>
           <Button variant={'outline'} type="button">
-            <Link href={'/register'}>
-              <p className="text-primary justify-end flex gap-2 items-center">
+            <Link href={'/register'} className="w-full h-full">
+              <p className="text-primary flex justify-center gap-2 items-center">
                 <span>
                   <Icon.paw className="h-5 w-5" />
                 </span>
