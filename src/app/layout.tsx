@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import '../lib/globals.css';
+import '../components/ui/globals.css';
+// import { SessionProvider } from 'next-auth/react';
+
 import React from 'react';
 import { ThemeProvider } from '@/components/ui/theme-provider';
+import AuthGuard from '@/components/auth-guard';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -17,6 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    // <SessionProvider>
     <html lang="en">
       <body className={inter.className}>
         <ThemeProvider
@@ -25,9 +29,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          {/* <AuthGuard>{children}</AuthGuard> */}
           {children}
         </ThemeProvider>
       </body>
     </html>
+    // </SessionProvider>
   );
 }

@@ -5,7 +5,10 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Icon } from '@/lib/icons';
 import { Metadata } from 'next';
+import { cookies } from 'next/headers';
 import Link from 'next/link';
+import { FormName } from './form-name';
+import { FormCity } from './form-city';
 
 export const metadata: Metadata = {
   title: 'Register | G-Pet',
@@ -37,58 +40,21 @@ export default function Register({ searchParams }: SearchParamsProps) {
       </div>
 
       <div className="h-full p-10">
-        <ChangeTheme />
-        <form
-          className="justify-center h-full w-11/12 flex flex-col gap-3"
-          action={submit}
-        >
+        <div className="w-full flex justify-end">
+          <ChangeTheme />
+        </div>
+        <div>
           <p className="text-lg font-semibold mb-5">
             Seja-bem vindo!! a página de cadastro da
             <span className="text-primary font-semibold"> G-Pet</span>
           </p>
+
           <Switch>
             <Default>
-              <Label title="Nome" htmlFor="name">
-                Nome Completo
-              </Label>
-              <Input type="text" name="name" placeholder="Insira seu nome" />
-              <Label title="Email" htmlFor="email">
-                Email
-              </Label>
-              <Input type="email" name="email" placeholder="Insira seu email" />
-              <Label title="NomeEstabelecimento" htmlFor="work">
-                Nome do estabelecimento
-              </Label>
-              <Input
-                type="text"
-                name="work"
-                placeholder="Insira o nome do estabelecimento"
-              />
-
-              <Button type="submit">
-                <Link
-                  href={'/register?step=2'}
-                  className="w-full justify-center flex gap-2 items-center"
-                >
-                  Proximo
-                </Link>
-              </Button>
+              <FormName />
             </Default>
             <Case condition={searchParams.step == 2}>
-              <Label title="CEP" htmlFor="cep">
-                CEP
-              </Label>
-              <Input type="text" name="cep" placeholder="Insira o CEP" />
-              <Label title="Telefone" htmlFor="phone">
-                Telefone
-              </Label>
-              <Input
-                type="text"
-                name="phone"
-                placeholder="Insira o numero de celular"
-              />
-
-              <Button type="submit">Enviar</Button>
+              <FormCity />
             </Case>
           </Switch>
           <Button variant={'outline'} type="button">
@@ -102,7 +68,7 @@ export default function Register({ searchParams }: SearchParamsProps) {
               Voltar
             </Link>
           </Button>
-        </form>
+        </div>
       </div>
     </main>
   );
