@@ -1,5 +1,6 @@
 import { Sidebar } from '@/components/sidebar';
-import React from 'react';
+import { WrapperLayoutInitial } from '@/components/wrapper';
+import React, { Suspense } from 'react';
 
 export default function RootLayout({
   children
@@ -9,8 +10,9 @@ export default function RootLayout({
   return (
     <div className="flex">
       <Sidebar />
-
-      {children}
+      <Suspense>
+        <WrapperLayoutInitial>{children}</WrapperLayoutInitial>
+      </Suspense>
     </div>
   );
 }

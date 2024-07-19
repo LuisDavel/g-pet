@@ -13,7 +13,15 @@ export const Icon = {
   fileBox: lucide.FileBox,
   package: lucide.Package,
   openPackage: lucide.PackageOpen,
-  sheet: lucide.Sheet
+  sheet: lucide.Sheet,
+  arrowDownUp: lucide.ArrowDownUp,
+  arrowDownAZ: lucide.ArrowDown,
+  arrowUpAZ: lucide.ArrowUp,
+  eyeClose: lucide.EyeOff,
+  x: lucide.X,
+  backButton: lucide.ChevronLeft,
+  moreHorizontal: lucide.MoreHorizontal,
+  squarePen: lucide.SquarePen
 };
 
 export type LucideIcon = lucide.LucideIcon;
