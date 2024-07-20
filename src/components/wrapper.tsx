@@ -6,5 +6,5 @@ type Props = {
   className?: string;
 };
 export function WrapperLayoutInitial({ children, className }: Props) {
-  return <div className={cn('px-2 py-6 w-full', className)}>{children}</div>;
+  return <div className={cn('px-6 py-6 w-full', className)}>{children}</div>;
 }

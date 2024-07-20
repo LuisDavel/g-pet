@@ -6,6 +6,7 @@ import '../components/ui/globals.css';
 import React from 'react';
 import { ThemeProvider } from '@/components/ui/theme-provider';
 import AuthGuard from '@/components/auth-guard';
+import { Toaster } from '@/components/ui/sonner';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({
     // <SessionProvider>
     <html lang="en">
       <body className={inter.className}>
+        <Toaster />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
