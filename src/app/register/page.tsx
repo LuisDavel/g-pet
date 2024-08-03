@@ -1,11 +1,8 @@
-import { Case, Default, Switch } from '@/components/conditiona-component';
+import { Case, Default, Switch } from '@/components/condition-component';
 import { Button } from '@/components/ui/button';
 import { ChangeTheme } from '@/components/ui/change-theme';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { Icon } from '@/lib/icons';
 import { Metadata } from 'next';
-import { cookies } from 'next/headers';
 import Link from 'next/link';
 import { FormName } from './form-name';
 import { FormCity } from './form-city';

@@ -24,7 +24,7 @@ export default function RootLayout({
     // <SessionProvider>
     <html lang="en">
       <body className={inter.className}>
-        <Toaster />
+        <Toaster richColors expand />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

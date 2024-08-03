@@ -26,7 +26,6 @@ import {
 
 import React from 'react';
 import { BadgeRequired } from '@/components/badge-required';
-import { people } from '@/app/api/fake';
 
 export function RegisterDialog() {
   const [enableClose, setEnableClose] = React.useState(false);
@@ -39,7 +38,7 @@ export function RegisterDialog() {
         <DialogHeader>
           <DialogTitle>Cadastro de cliente</DialogTitle>
           <DialogDescription>
-            Este formulário é utilizado para cadastro de novos usuários no
+            Este formulário é utilizado para cadastro de novos clientes no
             sistema.
           </DialogDescription>
         </DialogHeader>

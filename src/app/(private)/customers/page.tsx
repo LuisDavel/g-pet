@@ -19,6 +19,7 @@ export default function Page() {
         </div>
         <RegisterDialog />
       </div>
+      {/* @ts-ignore */}
       <DataTable data={people} columns={columns} />
     </>
   );

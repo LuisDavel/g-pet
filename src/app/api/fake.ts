@@ -16,6 +16,7 @@ export type UserProps = {
     description: string;
     color: string;
   }[];
+  pets: [id: number, name: string, race: string];
 };
 
 export const people = [
@@ -42,6 +43,20 @@ export const people = [
         description: 'PCD',
         color: 'blue'
       }
+    ],
+    pets: [
+      {
+        id: 1,
+        name: 'Laila',
+        type: 'dog',
+        race: 'Terrie'
+      },
+      {
+        id: 2,
+        name: 'Lincei',
+        type: 'cat',
+        race: 'Persia'
+      }
     ]
   },
   {
@@ -66,6 +81,20 @@ export const people = [
         id: 2,
         description: 'GAy',
         color: 'pink'
+      }
+    ],
+    pets: [
+      {
+        id: 1,
+        name: 'Client',
+        type: 'cat',
+        race: 'orange'
+      },
+      {
+        id: 2,
+        name: 'PCD',
+        type: 'cat',
+        race: 'blue'
       }
     ]
   }

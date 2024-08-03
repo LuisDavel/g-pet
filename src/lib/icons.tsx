@@ -21,7 +21,16 @@ export const Icon = {
   x: lucide.X,
   backButton: lucide.ChevronLeft,
   moreHorizontal: lucide.MoreHorizontal,
-  squarePen: lucide.SquarePen
+  squarePen: lucide.SquarePen,
+  shower: lucide.ShowerHead,
+  pencilRuler: lucide.PencilRuler,
+  contact: lucide.ContactRound,
+  truck: lucide.Truck,
+  report: lucide.FileLineChart,
+  config: lucide.Settings,
+  dog: lucide.Dog,
+  cat: lucide.Cat,
+  squareArrow: lucide.SquareArrowOutUpRight
 };
 
 export type LucideIcon = lucide.LucideIcon;

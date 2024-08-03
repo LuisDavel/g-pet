@@ -57,7 +57,7 @@ export function Sidebar() {
       variant: variantValidation('/box'),
       path: '/box',
       icons: <Icon.pigBank className={classNameOptionsMenu} />,
-      describe: 'Controle de Caixa'
+      describe: 'Controle de caixa'
     }
   ];
 
@@ -91,6 +91,44 @@ export function Sidebar() {
       path: '/table',
       icons: <Icon.sheet className={classNameOptionsMenu} />,
       describe: 'Tabela de preços'
+    }
+  ];
+  const optionsConfig = [
+    {
+      variant: variantValidation('/suppliers'),
+      path: '/suppliers',
+      icons: <Icon.contact className={classNameOptionsMenu} />,
+      describe: 'Fornecedores'
+    },
+    {
+      variant: variantValidation('/brands'),
+      path: '/brands',
+      icons: <Icon.pencilRuler className={classNameOptionsMenu} />,
+      describe: 'Marca'
+    },
+    {
+      variant: variantValidation('/bath-grooming'),
+      path: '/bath-grooming',
+      icons: <Icon.shower className={classNameOptionsMenu} />,
+      describe: 'Banho e tosa'
+    },
+    {
+      variant: variantValidation('/transport'),
+      path: '/transport',
+      icons: <Icon.truck className={classNameOptionsMenu} />,
+      describe: 'Transporte'
+    },
+    {
+      variant: variantValidation('/report'),
+      path: '/report',
+      icons: <Icon.report className={classNameOptionsMenu} />,
+      describe: 'Relatórios'
+    },
+    {
+      variant: variantValidation('/config'),
+      path: '/config',
+      icons: <Icon.config className={classNameOptionsMenu} />,
+      describe: 'Configurações'
     }
   ];
 
@@ -144,6 +182,26 @@ export function Sidebar() {
           </h2>
           <div className="space-y-1">
             {optionsStocks.map((items, index) => (
+              <Link key={index} legacyBehavior href={items.path}>
+                <Button
+                  //@ts-ignore
+                  variant={items.variant}
+                  className="w-full justify-start"
+                >
+                  {items.icons}
+                  {items.describe}
+                </Button>
+              </Link>
+            ))}
+          </div>
+        </div>
+        {/* Configurações */}
+        <div className="px-3 py-2">
+          <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
+            Administração{' '}
+          </h2>
+          <div className="space-y-1">
+            {optionsConfig.map((items, index) => (
               <Link key={index} legacyBehavior href={items.path}>
                 <Button
                   //@ts-ignore

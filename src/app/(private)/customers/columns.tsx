@@ -4,29 +4,11 @@ import { TableAvatar } from '@/components/table/avatar';
 import { Cell } from '@/components/table/cell';
 import { HeaderTable } from '@/components/table/header';
 import { Button } from '@/components/ui/button';
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger
-} from '@/components/ui/dialog';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger
-} from '@/components/ui/dropdown-menu';
-import { Icon } from '@/lib/icons';
 import { ColumnDef } from '@tanstack/react-table';
 import Link from 'next/link';
-import { toast } from 'sonner';
-import { InputForm } from './alter';
 import React from 'react';
 import { UserProps } from '@/app/api/fake';
+import { RowAction } from './_components/row-action';
 
 export const columns: ColumnDef<UserProps>[] = [
   {
@@ -92,44 +74,9 @@ export const columns: ColumnDef<UserProps>[] = [
   },
   {
     id: 'actions',
-    enableHiding: false,
     cell: ({ row }) => {
       const cell = row.original;
-      return (
-        <Dialog>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="h-8 w-8 p-0">
-                <span className="sr-only">Open menu</span>
-                <Icon.moreHorizontal className="h-4 w-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuLabel>Opções</DropdownMenuLabel>
-              <DialogTrigger asChild>
-                <DropdownMenuItem>
-                  <Icon.squarePen className="mr-2 h-4 w-4" />
-                  Alterar
-                </DropdownMenuItem>
-              </DialogTrigger>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>
-                <Icon.paw className="mr-2 h-4 w-4" /> Pets vinculados
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>Alterar de cliente</DialogTitle>
-              <DialogDescription>
-                Este formulário é utilizado para alterar o cadastro de usuários
-                no sistema.
-              </DialogDescription>
-            </DialogHeader>
-            <InputForm row={cell} />
-          </DialogContent>
-        </Dialog>
-      );
+      return <RowAction row={cell} />;
     }
   }
 ];

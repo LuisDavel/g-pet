@@ -39,11 +39,11 @@ export function HeaderTable<TData, TValue>({
           >
             <span>{title}</span>
             {column.getIsSorted() === 'desc' ? (
-              <Icon.arrowDownAZ className="ml-2 h-4 w-4" />
+              <Icon.arrowDownAZ className="ml-2 h-3.5 w-3.5" />
             ) : column.getIsSorted() === 'asc' ? (
-              <Icon.arrowUpAZ className="ml-2 h-4 w-4" />
+              <Icon.arrowUpAZ className="ml-2 h-3.5 w-3.5" />
             ) : (
-              <Icon.arrowDownUp className="ml-2 h-4 w-4" />
+              <Icon.arrowDownUp className="ml-2 h-3.5 w-3.5" />
             )}
           </Button>
         </DropdownMenuTrigger>
