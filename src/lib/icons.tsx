@@ -30,7 +30,10 @@ export const Icon = {
   config: lucide.Settings,
   dog: lucide.Dog,
   cat: lucide.Cat,
-  squareArrow: lucide.SquareArrowOutUpRight
+  squareArrow: lucide.SquareArrowOutUpRight,
+  triangleWarn: lucide.TriangleAlert,
+  sun: lucide.Sun,
+  moon: lucide.Moon
 };
 
 export type LucideIcon = lucide.LucideIcon;

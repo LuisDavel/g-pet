@@ -3,6 +3,7 @@ import { usePathname } from 'next/navigation';
 import { Button } from './ui/button';
 import { Icon } from '@/lib/icons';
 import Link from 'next/link';
+import { ChangeTheme } from './ui/change-theme';
 
 export function Sidebar() {
   const pathname = usePathname();
@@ -215,6 +216,7 @@ export function Sidebar() {
             ))}
           </div>
         </div>
+        <ChangeTheme />
         {/* Config */}
         {/* <div className="px-3 py-2">
           <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">

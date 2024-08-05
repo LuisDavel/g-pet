@@ -16,7 +16,8 @@ export type UserProps = {
     description: string;
     color: string;
   }[];
-  pets: [id: number, name: string, race: string];
+  pets: { id: number; name: string; race: string }[];
+  created: string;
 };
 
 export const people = [
@@ -57,7 +58,8 @@ export const people = [
         type: 'cat',
         race: 'Persia'
       }
-    ]
+    ],
+    created: '2024-03-02'
   },
   {
     id: 2,
@@ -96,6 +98,7 @@ export const people = [
         type: 'cat',
         race: 'blue'
       }
-    ]
+    ],
+    created: '2024-04-02'
   }
 ];

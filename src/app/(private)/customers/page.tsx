@@ -1,26 +1,15 @@
 import { Metadata } from 'next';
-import { columns } from './columns';
-import { DataTable } from '@/components/table/data-table';
+import { TableCustomers } from './columns';
 import { people } from '@/app/api/fake';
-
-import { RegisterDialog } from './register';
+import { api } from '@/lib/fetcher/fetch';
 
 export const metadata: Metadata = {
   title: 'Clientes | G-Pet',
   description: 'Pagina de clientes da G-Pet'
 };
 
-export default function Page() {
-  return (
-    <>
-      <div className="my-4 flex justify-between items-center">
-        <div className="flex items-center gap-2">
-          <p className="text-lg font-semibold">Lista de Clientes</p>
-        </div>
-        <RegisterDialog />
-      </div>
-      {/* @ts-ignore */}
-      <DataTable data={people} columns={columns} />
-    </>
-  );
+export default async function Page() {
+  const socorro = await api.get('https://pokeapi.co/api/v2/pokemon/ditto', {});
+
+  return <TableCustomers data={people} />;
 }

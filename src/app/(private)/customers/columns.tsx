@@ -9,8 +9,10 @@ import Link from 'next/link';
 import React from 'react';
 import { UserProps } from '@/app/api/fake';
 import { RowAction } from './_components/row-action';
+import { DataTable } from '@/components/table/data-table';
+import { InputSearch } from '@/components/table/input-search';
 
-export const columns: ColumnDef<UserProps>[] = [
+const columns: ColumnDef<UserProps>[] = [
   {
     accessorKey: 'name',
     header: ({ column }) => {
@@ -80,3 +82,22 @@ export const columns: ColumnDef<UserProps>[] = [
     }
   }
 ];
+
+type Props = {
+  data: UserProps[];
+};
+
+export function TableCustomers({ data }: Props) {
+  return (
+    <DataTable
+      search={(table) => (
+        <InputSearch
+          table={table}
+          options={{ id: 'name', placeholder: 'Busca por nome' }}
+        />
+      )}
+      data={data}
+      columns={columns}
+    />
+  );
+}
